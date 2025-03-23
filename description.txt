@@ -1,0 +1,116 @@
+Name: Sahana Naik
+Date: 23/09/2024
+Description:  
+            An MPEG tag reader project is designed to extract and display metadata from MP3 audio files, such as the song'stitle, 
+            artist, album, and more. These tags are typically stored in two formats: ID3v1 and ID3v2. ID3v1 tags are simple and 
+            located in the last 128 bytes of the MP3 file, containing fixed-length fields for metadata like title, artist, and album. 
+            On the other hand, ID3v2 tags are more complex and found at the beginning of the file, allowing for variable-length frames 
+            that store more detailed and flexible metadata, such as album art or lyrics. The program would open the file in binary mode, 
+            seek to the appropriate position for each tag type, read the data, and then display it in a human-readable format. The 
+            project highlights core C programming concepts like file I/O, string manipulation, and dynamic memory management.
+
+Help:-
+
+Test case 1:
+Input:  ./a.out --help
+Output: 
+-------------------------------------HELP MENU--------------------------------------
+1. -v ->to view mp3 file contents
+2. -e ->to edit mp3 file contents
+        2.1. -t -> to edit song title
+        2.2. -a -> to edit artist name
+        2.3. -A -> to edit album name
+        2.4. -y -> to edit year
+        2.5. -m -> to edit content
+        2.6. -c -> to edit comment
+--------------------------------------------------------------------------------------
+
+View:-
+
+Test case 2:
+Input : ./a.out -v audio.mpeg
+Output : 
+-------------------------------------------SELECTED VIEW DETAIL-------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------
+                                 MPEG TAG READER AND EDITOR FOR ID3v2
+---------------------------------------------------------------------------------------------------------------------
+TITLE   :       Sunny Sunny - Yo Yo Honey Singh - [SongsPk.CC]
+ARTIST  :       Yo Yo Honey Singh - [SongsPk.CC]
+ALBUM   :       Yaariyan
+YEAR    :       2013
+CONTENT :       Bollywood Music - [SongsPk.CC]
+COMMENT :       comt
+--------------------------------------------------------------------------------------------------------------------
+-----------------------------------------DETAILS DISPLAYED SUCCESSFULLY---------------------------------------------
+
+Test case 3:
+Input : ./a.out -v audio.mp3
+Output: Invalid mpeg file!!
+
+Test case 4:
+Input : ./a.out -v 
+Output : 
+---------------------------------------------------------------------
+ERROR: ./a.out : INVALID ARGUMENTS
+USAGE :
+To view please pass like: ./a.out -v mpegfilename
+---------------------------------------------------------------------
+
+Test case 5:
+Input : ./a.out 
+Output : 
+---------------------------------------------------------------------
+ERROR: ./a.out : INVALID ARGUMENTS
+USAGE :
+To view please pass like: ./a.out -v mpegfilename
+To edit please pass like: ./a.out -e -t/-a/-A/-m/-y/-c changing_text mpegfilename
+To get help pass like: ./a/out --help
+---------------------------------------------------------------------
+
+Edit :-
+
+Test case 6:
+Input :  ./a.out -e
+Output : 
+---------------------------------------------------------------------
+ERROR: ./a.out : INVALID NO. OF ARGUMENTS
+USAGE :
+To edit please pass like: ./a.out -e -t/-a/-A/-m/-y/-c changing_text mpegfilename
+---------------------------------------------------------------------
+
+Test case 7:-
+Input : ./a.out -e -t yoyosingh audio.mpeg
+output:
+Title updated succesfully..
+-------------------------------------------SELECTED VIEW DETAIL-------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------
+                                 MPEG TAG READER AND EDITOR FOR ID3v2
+---------------------------------------------------------------------------------------------------------------------
+TITLE   :       yoyosingh
+ARTIST  :       Yo Yo Honey Singh - [SongsPk.CC]
+ALBUM   :       Yaariyan
+YEAR    :       2013
+CONTENT :       Bollywood Music - [SongsPk.CC]
+COMMENT :       comt
+---------------------------------------------------------------------------------------------------------------------
+-----------------------------------------DETAILS DISPLAYED SUCCESSFULLY---------------------------------------------
+
+Test case 8:-
+Input: ./a.out -e -t yoyosingh
+output:
+---------------------------------------------------------------------
+ERROR: ./a.out : INVALID NO. OF ARGUMENTS
+USAGE :
+To edit please pass like: ./a.out -e -t/-a/-A/-m/-y/-c changing_text mpegfilename
+---------------------------------------------------------------------
+
+Test case 9:-
+Input : ./a.out -e -t yoyosingh 
+Output : 
+---------------------------------------------------------------------
+ERROR: ./a.out : INVALID NO. OF ARGUMENTS
+USAGE :
+To edit please pass like: ./a.out -e -t/-a/-A/-m/-y/-c changing_text mpegfilename
+---------------------------------------------------------------------
